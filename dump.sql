@@ -14,7 +14,7 @@ CREATE TABLE `category` (
   `sort_order` int NOT NULL,
   `status` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `category` (`id`, `name`, `sort_order`, `status`) VALUES
 (1,	'Рубашки',	1,	1),
@@ -52,7 +52,7 @@ CREATE TABLE `product` (
   `is_new` int NOT NULL DEFAULT '0',
   `is_recommended` int NOT NULL DEFAULT '0',
   `status` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `product` (`id`, `name`, `category_id`, `code`, `price`, `availability`, `brand`, `image`, `description`, `is_new`, `is_recommended`, `status`) VALUES
 (1,	'рубашка клетка',	1,	123,	45,	1,	'домшоп',	'рисунок',	'',	1,	0,	1),
