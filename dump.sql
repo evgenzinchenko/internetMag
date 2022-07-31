@@ -71,8 +71,8 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `user` (`id`, `email`, `password`, `name`) VALUES
-(1,	'asd@ukr.net',	222222,	'Sasha'),
-(2,	'qwerty@gmail.com',	111111,	'Dasha'),
-(3,	'sada@gmail.com',	111111,	'Fora');
+(1,	'sasha@i.ua',	222222,	'Sasha'),
+(2,	'dasha@i.ua',	111111,	'Dasha'),
+(3,	'fora@i.ua',	111111,	'Fora');
 
 -- 2022-07-31 10:59:54
