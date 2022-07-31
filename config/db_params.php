@@ -3,7 +3,7 @@
 return array(
 
 	'host' => 'localhost',
-	'dbname' => 'test',
+	'dbname' => 'db',
 	'user' => 'user',
 	'password' => 'password',
 );
