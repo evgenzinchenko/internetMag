@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +65,9 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i> Корзина</a></li>                                
+                                <?php require_once(ROOT.'/components/Cart.php'); ?>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i> Корзина<span id="cart-count">(<?php echo Cart::countItems();?></span></a></li> 
+                                <?php require_once(ROOT.'/models/User.php'); ?>                   
                                 <?php if (User::isGuest()): ?>
                                     <li><a href="/user/login/"><i class="fa fa-lock"></i> Вход</a></li>
                                 <?php else: ?>

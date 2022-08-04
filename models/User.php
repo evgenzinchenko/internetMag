@@ -1,5 +1,7 @@
 <?php
 
+require_once(ROOT.'/views/layouts/header.php');
+
 class User
 {
 	public static function register($name, $email, $password) {
@@ -40,7 +42,7 @@ class User
 		$sql = 'SELECT * FROM user WHERE email = :email AND password = :password';
 
 		$result = $db->prepare($sql);
-		$result->bindParam(':email', $email, PDO::PARAM_INT);
+		$result->bindParam(':email', $email, PDO::PARAM_STR);
 		$result->bindParam(':password', $password, PDO::PARAM_INT);
 		$result->execute();
 
@@ -53,7 +55,6 @@ class User
 
 	public static function auth($userId)
 	{
-		
 		$_SESSION['user'] = $userId;
 	}
 

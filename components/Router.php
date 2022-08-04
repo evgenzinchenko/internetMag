@@ -52,6 +52,7 @@ Class Router
 				if (file_exists($controllerFile)) {
 					include_once($controllerFile);
 				}
+				// var_dump($controllerFile); die;
 				$controllerObject = new $controllerName;
 
 			$result = call_user_func_array(array($controllerObject, $actionName),$parameters);
