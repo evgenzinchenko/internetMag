@@ -3,3 +3,4 @@ docker-compose.yml
 .DS_Store
 my-db/
 .idea/
+.vscode
