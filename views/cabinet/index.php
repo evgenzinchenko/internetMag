@@ -9,7 +9,7 @@
 			<h3>Привет, <?php echo $user['name'];?>!</h3>
 			<ul>
 				<li><a href="/cabinet/edit">Редактировать данные</a></li>
-				<li><a href="/cabinet/histori">Список покупок</a></li>
+				<li><a href="/cabinet/history">Список покупок</a></li>
 			</ul>
 			
 		</div>		
