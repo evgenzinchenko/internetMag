@@ -1,0 +1,32 @@
+version: '3.0'
+services:
+#  web:
+#    build: docker_web/nginx
+#    environment:
+#    - APACHE_RUN_USER=www-data
+#    volumes:
+#    - $PWD:/var/www/html
+##    ports:
+##    - 8080:80
+#    working_dir: /var/www/html
+#    links:
+#    - php
+#    - db
+#    restart: unless-stopped
+#  php:
+#    build: docker_web/php
+#    working_dir: /var/www/html
+#    volumes:
+#    - $PWD:/var/www/html
+#    restart: unless-stopped
+  db:
+    image: mysql:5.7.36
+    volumes:
+      - "./my-db:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
