@@ -1,6 +1,6 @@
 <?php
 
-require_once(ROOT.'/views/layouts/header.php');
+// require_once(ROOT.'/views/layouts/header.php');
 
 class User
 {
