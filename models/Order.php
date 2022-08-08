@@ -8,14 +8,29 @@ class Order
 	public static function save($userName, $userPhone, $userComment, $userId, $products)
 	{
 
+		echo gettype($products);
+		echo '<pre>';
+		print_r($products);
+		echo '<pre>';
+
+		$products = json_encode($products);
+
+		echo gettype($products);
+		echo '<pre>';
+		print_r($products);
+		echo '<pre>';
+
+
+
+
 		$db = Db::getConnection();
+
 
 		$sql = 'INSERT INTO product_order (user_name, user_phone, user_comment, user_id, products) '
 			. 'VALUES (:user_name, :user_phone, :user_comment, :user_id, :products)';
 
 
-			$products = json_encode($products);
-
+			
 
 			$result = $db->prepare($sql);
 			$result->bindParam(':user_name', $userName, PDO::PARAM_STR);
@@ -25,6 +40,7 @@ class Order
 			$result->bindParam(':products', $products, PDO::PARAM_STR);
 
 
-			return $result->execute();
+			$result->execute();
+		
 	}
 }

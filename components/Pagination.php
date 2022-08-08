@@ -5,7 +5,7 @@
 Class Pagination {
 
 
-	private $max = 10;
+	private $max = 3;
 
 
 
@@ -61,7 +61,7 @@ Class Pagination {
 
 		$html = '<ul class="pagination">';
 
-		for($page = $limits[0]; $page <= $limits[1]; $page++) {
+		for ($page = $limits[0]; $page <= $limits[1]; $page++) {
 			if ($page == $this->current_page) {
 				$links .= '<li class="active"><a href="#">' . $page . '</a></li>';
 			} else {
@@ -73,7 +73,7 @@ Class Pagination {
 		if(!is_null($links)) {
 
 			if ($this->current_page > 1)
-				$links .= $this->generateHtml(1, '&lt;') . $links;
+				$links .= $this->generateHtml(1, '&1t;') . $links;
 
 			if ($this->current_page < $this->amount)
 				$links .= $this->generateHtml($this->amount, '&gt;');
@@ -98,8 +98,8 @@ Class Pagination {
 			'<li><a href="' . $currentURI . $this->index . $page . '">' .$text . '</a></li>';
 	}
 
-	// private function limits()
-	// {
-	// 	$left = $this->current_page - round($this->max / 2);
-	// }
+	private function limits()
+	{
+		$left = $this->current_page - round($this->max / 2);
+	}
 }

@@ -2,6 +2,7 @@
 
 require_once(ROOT.'/models/Category.php');
 require_once(ROOT.'/components/Cart.php');
+require_once(ROOT.'/models/Product.php');
 
 class CartController
 {
@@ -20,6 +21,13 @@ class CartController
 	{
 		echo Cart::addProduct($id);
 		return true;
+	}
+
+	public function actionDelete($id)
+	{
+		Cart::deleteProduct($id);
+
+		header("Location: /cart");
 	}
 
 	public function actionIndex()
@@ -82,8 +90,8 @@ class CartController
 
 				if ($result) {
 					//Оповещаем администратора о новом заказе
-					$adminEmail = 'php.start@mail.ru';
-					$message = 'http://digital-mafia.net/admin/orders';
+					$adminEmail = 'evgen159@ukr.net';
+					$message = '';
 					$subject = 'Новый заказ';
 					mail($adminEmail, $subject, $message);
 
@@ -95,12 +103,12 @@ class CartController
 
 				//Получаем данные из корзины
 				$productsInCart = Cart::getProducts();
-				//В корзине есть товары?
-				if ($productsInCart == false) {
-					//В корзине есть товары? - Нет
-					//Отправляем пользователя на главную искать товары
-					header("Location: /");
-				} else {
+				// //В корзине есть товары?
+				// if ($productsInCart == false) {
+				// 	//В корзине есть товары? - Нет
+				// 	//Отправляем пользователя на главную искать товары
+				// 	header("Location: /");
+				// } else {
 					//В корзине есть товары? - Да	
 
 					//Итоги: общая стоимость, количество товара
@@ -109,30 +117,29 @@ class CartController
 					$totalPrice = Cart::getTotalPrice($products);
 					$totalQuantity = Cart::countItems();
 
-					$userName = false;
-					$userPhone = false;
-					$userComment = false;
+					// $userName = false;
+					// $userPhone = false;
+					// $userComment = false;
 
-					//Пользователь авторизован?
-					if (User::isGuest()) {
-						//Нет
-						//Значения для формы пустые
+					// //Пользователь авторизован?
+					// if (User::isGuest()) {
+					// 	//Нет
+					// 	//Значения для формы пустые
 					
-					} else {
-						//Да, авторизован
-						//Получаем информацио о пользователе из БД по id
-					$userId = User::checkLogged();
-					$user = User::getUserById($userId);
-					//Подставляем в форму
-					$userName = $user['name'];
+				// 	} else {
+				// 		//Да, авторизован
+				// 		//Получаем информацио о пользователе из БД по id
+				// 	$userId = User::checkLogged();
+				// 	$user = User::getUserById($userId);
+				// 	//Подставляем в форму
+				// 	$userName = $user['name'];
 				
 
-				}
+				// }
 			}
 		}
 		require_once(ROOT . '/views/cart/checkout.php');
 
 		return true;
 	}
-}
 }

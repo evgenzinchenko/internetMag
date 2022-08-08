@@ -46,7 +46,7 @@ Class Product
 			$db = Db::getConnection();
 			$products = array();
 			$result = $db->query("SELECT id, name, price, image, is_new FROM product "
-						. "WHERE status = '1' AND category_id = '$categoryId'" 
+						. "WHERE status = '1' AND category_id = '$categoryId' " 
 						. "ORDER BY id ASC "
 						. "LIMIT ".self::SHOW_BY_DEFAULT
 						. ' OFFSET '. $offset);

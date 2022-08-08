@@ -22,6 +22,8 @@ class Cart
 
 		$_SESSION['products'] = $productsInCart;
 
+		// echo '<pre>';print_r($_SESSION['products']); die();
+
 		return self::countItems();
 		}
 
@@ -66,6 +68,15 @@ class Cart
 			if (isset($_SESSION['products'])) {
 				unset($_SESSION['products']);
 			}
+		}
+
+		public static function deleteProduct($id)
+		{
+			$productsInCart = self::getProducts();
+
+			unset(productsInCart[$id]);
+
+			$_SESSION['products'] = $productsInCart;
 		}
 
 }

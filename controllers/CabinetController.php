@@ -2,6 +2,8 @@
 /**
  * 
  */
+include_once ROOT. '/models/User.php';
+
 class CabinetController
 {
 	
